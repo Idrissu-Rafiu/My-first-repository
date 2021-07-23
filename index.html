@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>counter</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .wrapper {
+        background-color: #272727;
+        border-radius: 8px;
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      .counter {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        border: 2px solid #fff;
+        color: #fff;
+
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+      button {
+        display: inline-block;
+        border: 0;
+        background: 0;
+        border: 1px solid #fff;
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        text-transform: capitalize;
+        transition: background-color 0.2s ease;
+      }
+
+      button:hover {
+        background-color: #fff;
+        color: #272727;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="counter"></div>
+      <button class="btnAdd">+</button>
+      <button class="btnReduce">-</button>
+      <button class="reset">reset</button>
+    </div>
+
+    <script>
+      let counter = document.querySelector(".counter");
+      counter.textContent = 0;
+      const add = document.querySelector(".btnAdd");
+      const reduce = document.querySelector(".btnReduce");
+      const reset = document.querySelector(".reset");
+      //   console.log(add, reduce);
+      add.addEventListener("click", function () {
+        counter.textContent++;
+      });
+      reduce.addEventListener("click", function () {
+        counter.textContent--;
+        if (counter.textContent == -1) {
+          counter.textContent++;
+        }
+      });
+
+      reset.addEventListener("click", function () {
+        counter.textContent = 0;
+      });
+    </script>
+  </body>
+</html>
